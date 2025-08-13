@@ -649,12 +649,15 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">{t[language].phone}</p>
-                      <a 
-                        href="tel:010-7150-3635" 
-                        className="text-gray-600 text-sm sm:text-base hover:text-[#3FA54D] transition-colors duration-200 cursor-pointer"
-                      >
-                        010-7150-3635
-                      </a>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="tel:010-7150-3635"
+                          className="text-gray-600 text-sm sm:text-base hover:text-[#3FA54D] transition-colors duration-200 cursor-pointer"
+                        >
+                          010-7150-3635
+                        </a>
+                        <span className="text-gray-500 text-sm sm:text-base">(오우택 관장)</span>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
