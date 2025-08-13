@@ -250,7 +250,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].adultDesc}</p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                  75{language === "en" ? " min class" : "분 수업"}
+                   60{language === "en" ? " min class" : "분 수업"}
                 </div>
               </CardContent>
             </Card>
@@ -263,7 +263,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].nogiDesc}</p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                  75{language === "en" ? " min class" : "분 수업"}
+                   60{language === "en" ? " min class" : "분 수업"}
                 </div>
               </CardContent>
             </Card>
