@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { useLanguage } from "@/components/language-toggle"
-import { Clock, Users, Target, Award } from "lucide-react"
+import { Clock, Users, Target, Award, Instagram } from "lucide-react"
 
 export default function Home() {
   const { language } = useLanguage()
@@ -110,7 +110,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50">
+      <section id="home" className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="animate-fade-in-up text-center lg:text-left">
@@ -171,8 +171,8 @@ export default function Home() {
 
             <div className="relative">
               <img
-                src="/abstract-geometric-shapes.png"
-                alt="Jiu Jitsu Training"
+                src="/group-image.jpg"
+                alt="Cheolsan Jiu Jitsu Team"
                 className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-lg"
               />
             </div>
@@ -294,26 +294,43 @@ export default function Home() {
             </div>
 
             {/* Schedule Table */}
-            <div className="overflow-x-auto bg-white rounded-lg shadow-sm border">
-              <table className="w-full min-w-[600px]">
+            <div className="relative">
+              <div className="overflow-x-auto bg-white rounded-lg shadow-sm border">
+                <table className="w-full min-w-[800px]">
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
-                      {t[language].hours}
+                      {language === "en" ? "Time" : "시간"}
                     </th>
                     <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
-                      {t[language].mondayFriday}
+                      {language === "en" ? "Mon" : "월"}
                     </th>
                     <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
-                      {t[language].saturday}
+                      {language === "en" ? "Tue" : "화"}
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                      {language === "en" ? "Wed" : "수"}
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                      {language === "en" ? "Thu" : "목"}
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                      {language === "en" ? "Fri" : "금"}
+                    </th>
+                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                      {language === "en" ? "Sat" : "토"}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      AM 10:00
+                      {language === "en" ? "10:00 AM - 11:00 AM" : "오전 10:00 - 11:00"}
                     </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
                       <div className="flex items-center gap-2">
@@ -324,7 +341,31 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      PM 03:40
+                      {language === "en" ? "3:40 PM - 4:40 PM" : "오후 3:40 - 4:40"}
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
                       <div className="flex items-center gap-2">
@@ -336,7 +377,31 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      PM 04:40
+                      {language === "en" ? "4:40 PM - 5:40 PM" : "오후 4:40 - 5:40"}
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
                       <div className="flex items-center gap-2">
@@ -348,7 +413,31 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      PM 06:00
+                      {language === "en" ? "6:00 PM - 7:00 PM" : "오후 6:00 - 7:00"}
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
+                        {language === "en" ? "Kids" : "초등부"}
+                      </div>
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
                       <div className="flex items-center gap-2">
@@ -360,7 +449,31 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      PM 07:00
+                      {language === "en" ? "7:00 PM - 8:00 PM" : "오후 7:00 - 8:00"}
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
                       <div className="flex items-center gap-2">
@@ -372,26 +485,52 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      PM 08:30
+                      {language === "en" ? "8:30 PM - 9:30 PM" : "오후 8:30 - 9:30"}
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                          <span>{language === "en" ? "Adult (Mon, Tue, Thu, Fri)" : "성인부 (월, 화, 목, 금)"}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                          <span className="italic text-[#3FA54D]">
-                            {language === "en" ? "NOGI (Wednesday)" : "NOGI (수요일)"}
-                          </span>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        <span className="italic text-[#3FA54D]">NOGI</span>
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
+                      </div>
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
+                        {language === "en" ? "Adult" : "성인부"}
                       </div>
                     </td>
                     <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
                   </tr>
                 </tbody>
               </table>
+              </div>
+              
+              {/* Mobile Scroll Indicator */}
+              <div className="md:hidden mt-4 text-center">
+                <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                  <span>←</span>
+                  <span>{language === "en" ? "Scroll left and right to check the full timetable" : "좌우로 스크롤하여 전체 시간표를 확인하세요"}</span>
+                  <span>→</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -410,8 +549,8 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/training-1.jpg"
-                alt={language === "en" ? "Jiu Jitsu Training Session" : "주짓수 훈련 모습"}
+                src="/gallery/bjjkids.JPG"
+                alt={language === "en" ? "Kids Jiu Jitsu Class" : "초등부 주짓수 수업"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -510,7 +649,12 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">{t[language].phone}</p>
-                      <p className="text-gray-600 text-sm sm:text-base">010-7150-3635</p>
+                      <a 
+                        href="tel:010-7150-3635" 
+                        className="text-gray-600 text-sm sm:text-base hover:text-[#3FA54D] transition-colors duration-200 cursor-pointer"
+                      >
+                        010-7150-3635
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -580,11 +724,9 @@ export default function Home() {
                 href="https://www.instagram.com/cheolsan_jiujitsu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#3FA54D] transition-colors duration-300"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E1306C] transition-colors duration-300 transition-shadow hover:shadow-[0_0_20px_rgba(225,48,108,0.45)]"
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
