@@ -228,7 +228,7 @@ export default function Home() {
           </div>
 
           {/* Classes */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             <Card className="border-l-4 border-l-[#F7C948] hover-glow transition-all duration-300">
               <CardContent className="p-4 sm:p-6">
                 <Badge className="bg-[#F7C948] text-gray-900 mb-2 sm:mb-3">Kids</Badge>
@@ -237,7 +237,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].kidsDesc}</p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                  60{language === "en" ? " min class" : "분 수업"}
+                  50{language === "en" ? " min class" : "분 수업"}
                 </div>
               </CardContent>
             </Card>
@@ -255,18 +255,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="border-l-4 border-l-gray-900 hover-glow transition-all duration-300">
-              <CardContent className="p-4 sm:p-6">
-                <Badge className="bg-gray-900 text-white mb-2 sm:mb-3">No Gi</Badge>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">No Gi</h3>
-                <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">{t[language].nogiClass}</p>
-                <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].nogiDesc}</p>
-                <div className="flex items-center text-xs sm:text-sm text-gray-500">
-                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                   60{language === "en" ? " min class" : "분 수업"}
-                </div>
-              </CardContent>
-            </Card>
+            
           </div>
 
           {/* Schedule */}
