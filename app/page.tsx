@@ -123,13 +123,40 @@ export default function Home() {
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 {t[language].heroDescription}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
                 <Button
                   size="lg"
                   onClick={scrollToContact}
                   className="bg-[#3FA54D] hover:bg-[#3FA54D]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
                 >
                   {t[language].registerNow}
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-[#E1306C] hover:bg-[#E1306C]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
+                >
+                  <a
+                    href="https://www.instagram.com/cheolsan_jiujitsu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    Instagram
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-[#2DB400] hover:bg-[#2DB400]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
+                >
+                  <a
+                    href="https://m.blog.naver.com/jude56kr?tab=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {language === "en" ? "Naver Blog" : "네이버 블로그"}
+                  </a>
                 </Button>
               </div>
             </div>
@@ -536,55 +563,51 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/bjjkids.JPG"
-                alt={language === "en" ? "Kids Jiu Jitsu Class" : "초등부 주짓수 수업"}
+                src="/gallery/i1.JPG"
+                alt={language === "en" ? "Gallery Photo 1" : "갤러리 사진 1"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/training-2.jpg"
-                alt={language === "en" ? "Technique Practice" : "기술 연습"}
+                src="/gallery/i2.JPG"
+                alt={language === "en" ? "Gallery Photo 2" : "갤러리 사진 2"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/team-photo.jpg"
-                alt={language === "en" ? "Team Photo" : "팀 단체 사진"}
+                src="/gallery/i3.JPG"
+                alt={language === "en" ? "Gallery Photo 3" : "갤러리 사진 3"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/respect.jpg"
-                alt={language === "en" ? "Respect and Sportsmanship" : "예의와 스포츠맨십"}
+                src="/gallery/i4.JPG"
+                alt={language === "en" ? "Gallery Photo 4" : "갤러리 사진 4"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/sparring.jpg"
-                alt={language === "en" ? "Sparring Practice" : "스파링 연습"}
+                src="/gallery/i5.JPG"
+                alt={language === "en" ? "Gallery Photo 5" : "갤러리 사진 5"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
               <img
-                src="/gallery/team-spirit.jpg"
-                alt={language === "en" ? "Team Spirit" : "팀 정신"}
+                src="/gallery/i6.JPG"
+                alt={language === "en" ? "Gallery Photo 6" : "갤러리 사진 6"}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
