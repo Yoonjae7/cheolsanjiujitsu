@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="ko"
       className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
     >
-      <body className="font-korean antialiased">
+      <body className={`${notoSansKR.className} font-korean antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

@@ -21,18 +21,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   return <LanguageContext.Provider value={{ language, setLanguage }}>{children}</LanguageContext.Provider>
 }
 
-export function LanguageToggle() {
+export function LanguageToggle({ onDark }: { onDark?: boolean }) {
   const { language, setLanguage } = useLanguage()
 
+  const active = "bg-[#3FA54D] text-white hover:bg-[#3FA54D]/90"
+  const inactive = onDark
+    ? "text-white/75 hover:text-white hover:bg-white/10"
+    : "text-gray-600 hover:text-gray-900"
+
   return (
-    <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
+    <div
+      className={
+        onDark
+          ? "flex items-center gap-1 rounded-sm bg-white/10 p-0.5 border border-white/15"
+          : "flex items-center gap-1 rounded-full bg-gray-100 p-1"
+      }
+    >
       <Button
         variant={language === "ko" ? "default" : "ghost"}
         size="sm"
         onClick={() => setLanguage("ko")}
-        className={`rounded-full px-3 py-1 text-xs ${
-          language === "ko" ? "bg-[#3FA54D] text-white hover:bg-[#3FA54D]/90" : "text-gray-600 hover:text-gray-900"
-        }`}
+        className={`rounded-sm px-3 py-1 text-xs ${language === "ko" ? active : inactive}`}
       >
         KR
       </Button>
@@ -40,9 +49,7 @@ export function LanguageToggle() {
         variant={language === "en" ? "default" : "ghost"}
         size="sm"
         onClick={() => setLanguage("en")}
-        className={`rounded-full px-3 py-1 text-xs ${
-          language === "en" ? "bg-[#3FA54D] text-white hover:bg-[#3FA54D]/90" : "text-gray-600 hover:text-gray-900"
-        }`}
+        className={`rounded-sm px-3 py-1 text-xs ${language === "en" ? active : inactive}`}
       >
         EN
       </Button>

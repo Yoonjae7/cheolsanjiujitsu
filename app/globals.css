@@ -1,5 +1,8 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+/* Scan the whole project — narrow globs can drop Tailwind output in v4 */
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+/* File path avoids package resolution issues that can drop all Tailwind output */
+@import "../node_modules/tw-animate-css/dist/tw-animate.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -10,13 +13,13 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #3fa54d;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --accent: #ffd93b;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -83,13 +86,12 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
+  /* Keep brand tokens — do not overwrite with second --color-primary / --color-accent */
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -132,12 +134,13 @@ html {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 /* Hover glow effect */
@@ -146,10 +149,38 @@ html {
   transition: box-shadow 0.3s ease;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+/* Editorial hero: deep forest using brand green family + warm accent glow */
+.hero-editorial-bg {
+  background-color: #0f2413;
+  background-image:
+    radial-gradient(ellipse 130% 90% at 15% -10%, rgba(63, 165, 77, 0.28) 0%, transparent 52%),
+    radial-gradient(ellipse 100% 80% at 100% 110%, rgba(255, 217, 59, 0.07) 0%, transparent 45%),
+    linear-gradient(168deg, #0f2413 0%, #152f1a 42%, #081209 100%);
+}
+
+.hero-editorial-noise {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.04) 0%, transparent 42%),
+    radial-gradient(circle at 82% 78%, rgba(255, 255, 255, 0.025) 0%, transparent 38%);
+}
+
+/* Hero video: same palette as .hero-editorial-bg but translucent so footage reads through */
+.hero-editorial-bg-over-video {
+  /* Slightly lighter so looping footage reads as “always on” behind the green */
+  background-color: rgba(15, 36, 19, 0.68);
+  background-image:
+    radial-gradient(ellipse 130% 90% at 15% -10%, rgba(63, 165, 77, 0.26) 0%, transparent 52%),
+    radial-gradient(ellipse 100% 80% at 100% 110%, rgba(255, 217, 59, 0.06) 0%, transparent 45%),
+    linear-gradient(168deg, rgba(15, 36, 19, 0.45) 0%, rgba(21, 47, 26, 0.55) 42%, rgba(8, 18, 9, 0.72) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video {
+    display: none;
   }
+}
+
+@layer base {
   body {
     @apply bg-background text-foreground;
   }

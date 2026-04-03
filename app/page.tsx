@@ -1,11 +1,12 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { useLanguage } from "@/components/language-toggle"
-import { Clock, Users, Target, Award, Instagram } from "lucide-react"
+import { Clock, Users, Target, Award, Instagram, ChevronDown } from "lucide-react"
 
 export default function Home() {
   const { language } = useLanguage()
@@ -13,12 +14,18 @@ export default function Home() {
   const t = {
     ko: {
       heroTitle: "철산 주짓수",
-      heroSubtitle: "존 프랭클 주짓수 팀",
+      heroSubtitle: "존 프랭클 주짓수",
+      heroTopName: "존 프랭클",
       heroDescription:
         "팀워크, 규율, 그리고 성장을 통해 진정한 주짓수 정신을 배워보세요. 경험 많은 지도진과 함께하는 체계적인 훈련 프로그램을 제공합니다.",
       registerNow: "지금 등록하기",
       aboutTitle: "철산 주짓수 소개",
       aboutDescription: "존 프랭클 주짓수의 전통과 철학을 이어받아, 광명시 철산동에서 최고의 주짓수 교육을 제공합니다.",
+      competitionLogoAlt: "존 프랭클 주짓수 경기팀 로고",
+      cheolsanLogoAlt: "철산 주짓수 로고",
+      competitionTeamShort: "경기팀",
+      cheolsanAcademyShort: "철산 도장",
+      affiliationAriaLabel: "존 프랭클 경기팀과 철산 주짓수 도장",
       historyTitle: "우리의 역사와 철학",
       historyText1:
         "철산 주짓수는 존 프랭클 주짓수 팀의 정통 계보를 이어받아 설립되었습니다. 우리는 단순한 기술 습득을 넘어서, 주짓수를 통한 인격 수양과 공동체 정신을 중요하게 생각합니다.",
@@ -41,8 +48,9 @@ export default function Home() {
       scheduleTitle: "주간 시간표",
       galleryTitle: "갤러리",
       galleryDescription: "철산 주짓수의 생생한 훈련 모습과 팀 활동을 확인해보세요",
-      contactTitle: "문의하기",
-      contactDescription: "언제든지 문의해 주세요. 체험 수업도 환영합니다!",
+      promoLine1: "경찰·소방 10% 할인 · 3개월 등록 시 도복 무료",
+      promoLine2: "스포츠강좌이용권 가맹 체육관",
+      promoLine3: "광명사랑화폐 사용 가능합니다",
       address: "주소",
       phone: "전화번호",
       hours: "운영시간",
@@ -52,16 +60,32 @@ export default function Home() {
       closed: "휴무",
       footerText: "철산 주짓수와 함께 새로운 도전을 시작하세요",
       contactInfo: "연락처 정보",
+      heroKicker: "대한민국 주짓수의 길 위에서",
+      heroDisplay: "주짓수",
+      heroHeadline: "어디서 배우느냐가 중요합니다",
+      heroLeadBefore: "이제 주짓수는 흔합니다.",
+      heroLeadHighlight: "하지만",
+      heroLeadMid: "그 시작을 연 계보가 있습니다.",
+      heroLeadClosing: "철산 주짓수는 그 정통을 이어갑니다.",
+      heroBottomDisplay: "철산 주짓수",
+      scrollDown: "아래로",
+      scrollDownAria: "아래로 스크롤하여 소개로 이동",
     },
     en: {
       heroTitle: "Cheolsan Jiu Jitsu",
-      heroSubtitle: "John Frankl Jiu Jitsu Team",
+      heroSubtitle: "John Frankl Jiu Jitsu",
+      heroTopName: "John Frankl",
       heroDescription:
         "Learn the true spirit of jiu jitsu through teamwork, discipline, and growth. We provide systematic training programs with experienced instructors.",
       registerNow: "Register Now",
       aboutTitle: "About Cheolsan Jiu Jitsu",
       aboutDescription:
         "Inheriting the tradition and philosophy of John Frankl Jiu Jitsu, we provide the best jiu jitsu education in Cheolsan-dong, Gwangmyeong City.",
+      competitionLogoAlt: "John Frankl Jiu Jitsu competition team logo",
+      cheolsanLogoAlt: "Cheolsan Jiu Jitsu logo",
+      competitionTeamShort: "Competition team",
+      cheolsanAcademyShort: "Cheolsan academy",
+      affiliationAriaLabel: "John Frankl competition team and Cheolsan Jiu Jitsu academy",
       historyTitle: "Our History and Philosophy",
       historyText1:
         "Cheolsan Jiu Jitsu was established inheriting the authentic lineage of the John Frankl Jiu Jitsu team. We value character development and community spirit through jiu jitsu, beyond simple technique acquisition.",
@@ -84,8 +108,9 @@ export default function Home() {
       scheduleTitle: "Weekly Schedule",
       galleryTitle: "Gallery",
       galleryDescription: "Check out the vibrant training scenes and team activities at Cheolsan Jiu Jitsu",
-      contactTitle: "Contact Us",
-      contactDescription: "Feel free to contact us anytime. Trial classes are welcome!",
+      promoLine1: "10% off for police & fire · Free gi with 3-month registration",
+      promoLine2: "Sports class voucher partner facility",
+      promoLine3: "Gwangmyeong Sarang local currency accepted",
       address: "Address",
       phone: "Phone",
       hours: "Operating Hours",
@@ -95,6 +120,16 @@ export default function Home() {
       closed: "Closed",
       footerText: "Start a new challenge with Cheolsan Jiu Jitsu",
       contactInfo: "Contact Information",
+      heroKicker: "Standing on Korean jiu jitsu history",
+      heroDisplay: "JIU JITSU",
+      heroHeadline: "Where you train matters",
+      heroLeadBefore: "It's everywhere now.",
+      heroLeadHighlight: "But",
+      heroLeadMid: "someone laid the foundation first.",
+      heroLeadClosing: "Cheolsan Jiu Jitsu continues that authentic lineage.",
+      heroBottomDisplay: "CHEOLSAN",
+      scrollDown: "Scroll",
+      scrollDownAria: "Scroll down to the about section",
     },
   }
 
@@ -105,84 +140,195 @@ export default function Home() {
     }
   }
 
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const v = heroVideoRef.current
+    if (!v) return
+
+    const kick = () => {
+      v.muted = true
+      v.loop = true
+      void v.play().catch(() => {})
+    }
+
+    kick()
+    const onVis = () => {
+      if (document.visibilityState === "visible") kick()
+    }
+    const onEnded = () => {
+      v.currentTime = 0
+      kick()
+    }
+
+    v.addEventListener("loadeddata", kick)
+    v.addEventListener("canplay", kick)
+    v.addEventListener("ended", onEnded)
+    document.addEventListener("visibilitychange", onVis)
+
+    return () => {
+      v.removeEventListener("loadeddata", kick)
+      v.removeEventListener("canplay", kick)
+      v.removeEventListener("ended", onEnded)
+      document.removeEventListener("visibilitychange", onVis)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section id="home" className="pt-20 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="animate-fade-in-up text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-                {t[language].heroTitle}
-              </h1>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#3FA54D] font-semibold mb-3 sm:mb-4">
-                {t[language].heroSubtitle}
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+      {/* Hero — fixed to exactly one viewport below nav (no extra height / no scroll inside green) */}
+      <section
+        id="home"
+        className="relative flex h-[calc(100dvh-3.75rem)] max-h-[calc(100dvh-3.75rem)] shrink-0 flex-col scroll-mt-0 overflow-hidden bg-[#0f2413] text-[#f5f2ea]"
+      >
+        <div className="hero-bg-video pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+          <video
+            ref={heroVideoRef}
+            className="h-full w-full min-h-full min-w-full scale-[1.02] object-cover object-center select-none"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            aria-hidden
+          >
+            {/* MP4 first — plays in Chrome / Edge / Firefox / Android; MOV is fallback for Safari */}
+            <source src="/csbjj.mp4" type="video/mp4" />
+            <source src="/csbjj.mov" type="video/quicktime" />
+          </video>
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] hero-editorial-bg-over-video"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute inset-0 z-[2] hero-editorial-noise opacity-90" aria-hidden />
+
+        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-visible px-5 pb-[clamp(5.5rem_16vw_8.5rem)] pt-5 sm:px-6 sm:pt-5 lg:px-8 lg:pb-[clamp(5.5rem_12vw_7.5rem)] lg:pt-6">
+          <div className="grid min-h-0 flex-1">
+            <div className="relative z-30 flex min-h-0 flex-col justify-center max-lg:max-w-none max-lg:space-y-4 max-lg:pb-2 text-left lg:max-w-xl lg:justify-start lg:space-y-3 lg:pt-2">
+              <div className="max-lg:space-y-1 space-y-0.5">
+                <p className="text-[12px] font-semibold leading-snug text-[#FFD93B] sm:text-[13px] lg:text-[11px] lg:font-semibold lg:uppercase lg:tracking-[0.22em]">
+                  {t[language].heroTopName}
+                </p>
+                <h1 className="text-[2.875rem] font-bold leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
+                  {t[language].heroDisplay}
+                </h1>
+              </div>
+              <div className="max-w-md max-lg:border-0 max-lg:pt-0 max-lg:mt-0 border-t border-white/20 pt-3 lg:mt-0">
+                <p className="text-lg font-semibold leading-snug text-white sm:text-xl lg:font-medium lg:text-[#f5f2ea] lg:text-xl">
+                  {t[language].heroHeadline}
+                </p>
+              </div>
+              <p className="max-w-md text-[15px] font-normal leading-relaxed text-white/95 sm:text-base lg:text-[0.9375rem] lg:text-white/75">
+                {t[language].heroLeadBefore}{" "}
+                <span className="font-semibold text-[#FFD93B]">{t[language].heroLeadHighlight}</span>{" "}
+                {t[language].heroLeadMid}
+                <span className="mt-2 block font-normal text-white/95 lg:text-white/75">{t[language].heroLeadClosing}</span>
+              </p>
+              <p className="max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm lg:text-xs lg:text-white/55">
                 {t[language].heroDescription}
               </p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
+
+              <div className="flex max-lg:pt-2 flex-col gap-2 pt-1 sm:flex-row sm:flex-wrap sm:gap-2.5">
                 <Button
                   size="lg"
                   onClick={scrollToContact}
-                  className="bg-[#3FA54D] hover:bg-[#3FA54D]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
+                  className="rounded-sm bg-[#3FA54D] px-5 py-5 text-sm font-semibold text-white shadow-none hover:bg-[#358a45] sm:px-6 sm:py-4"
                 >
                   {t[language].registerNow}
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#E1306C] hover:bg-[#E1306C]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
+                  variant="outline"
+                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4"
                 >
                   <a
                     href="https://www.instagram.com/cheolsan_jiujitsu/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Instagram className="w-4 h-4" />
+                    <Instagram className="mr-2 h-4 w-4" />
                     Instagram
                   </a>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#2DB400] hover:bg-[#2DB400]/90 text-white px-6 sm:px-8 py-3 rounded-full hover-glow text-sm sm:text-base"
+                  variant="outline"
+                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4"
                 >
-                  <a
-                    href="https://m.blog.naver.com/jude56kr?tab=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://m.blog.naver.com/jude56kr?tab=1" target="_blank" rel="noopener noreferrer">
                     {language === "en" ? "Naver Blog" : "네이버 블로그"}
                   </a>
                 </Button>
               </div>
             </div>
-
-            <div className="relative animate-fade-in-up animation-delay-200">
-              <div className="relative z-10">
-                <img
-                  src="/logo.png"
-                  alt="Cheolsan Jiu Jitsu Logo"
-                  className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto object-contain"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#3FA54D]/10 to-[#FFD93B]/10 rounded-full blur-3xl"></div>
-            </div>
           </div>
         </div>
+
+        <a
+          href="#about"
+          className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-1.5 text-white/55 transition-colors hover:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFD93B]/70 sm:bottom-7"
+          aria-label={t[language].scrollDownAria}
+        >
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] sm:text-[11px]">
+            {t[language].scrollDown}
+          </span>
+          <ChevronDown
+            className="h-5 w-5 motion-safe:animate-bounce motion-reduce:animate-none"
+            strokeWidth={2}
+            aria-hidden
+          />
+        </a>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section id="about" className="scroll-mt-20 py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               {t[language].aboutTitle}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">{t[language].aboutDescription}</p>
+          </div>
+
+          <div
+            className="mb-12 sm:mb-16 flex flex-col items-center"
+            aria-label={t[language].affiliationAriaLabel}
+          >
+            <div className="flex flex-row flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="flex h-24 items-center justify-center sm:h-28">
+                  <img
+                    src="/competition-team-logo.png"
+                    alt={t[language].competitionLogoAlt}
+                    className="max-h-full w-auto max-w-[min(100vw-3rem,200px)] object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                  {t[language].competitionTeamShort}
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="flex h-24 items-center justify-center sm:h-28">
+                  <img
+                    src="/logo.png"
+                    alt={t[language].cheolsanLogoAlt}
+                    className="max-h-full w-auto max-w-[min(100vw-3rem,200px)] object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                  {t[language].cheolsanAcademyShort}
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
@@ -644,11 +790,12 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              {t[language].contactTitle}
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600">{t[language].contactDescription}</p>
+          <div className="mb-10 sm:mb-12 rounded-lg border border-[#3FA54D]/20 bg-white px-4 py-4 shadow-sm sm:px-6 sm:py-5">
+            <ul className="space-y-2 text-center text-sm leading-relaxed text-gray-800 sm:text-base">
+              <li>{t[language].promoLine1}</li>
+              <li>{t[language].promoLine2}</li>
+              <li>{t[language].promoLine3}</li>
+            </ul>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
@@ -766,7 +913,7 @@ export default function Home() {
                 href="https://www.instagram.com/cheolsan_jiujitsu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E1306C] transition-colors duration-300 transition-shadow hover:shadow-[0_0_20px_rgba(225,48,108,0.45)]"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E1306C] transition-colors duration-300 transition-shadow hover:shadow-[0_0_20px_rgb(225_48_108/0.45)]"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
