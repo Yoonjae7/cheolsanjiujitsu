@@ -175,7 +175,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-[100dvh] w-full min-w-0 overflow-x-hidden bg-white">
       <Navigation />
 
       {/* Hero — fixed to exactly one viewport below nav (no extra height / no scroll inside green) */}
