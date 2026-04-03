@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "철산 주짓수 - Cheolsan Jiu Jitsu",
   description: "존 프랭클 주짓수 팀 - 경기도 광명시 철산동",
   generator: "v0.dev",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({
@@ -24,18 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko" className={`${notoSansKR.variable}`}>
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-korean: ${notoSansKR.variable};
-}
-        `}</style>
-      </head>
-      <body className="font-korean">
+    <html
+      lang="ko"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
+    >
+      <body className="font-korean antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

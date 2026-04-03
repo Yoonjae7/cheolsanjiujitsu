@@ -312,228 +312,253 @@ export default function Home() {
             {/* Schedule Table */}
             <div className="relative">
               <div className="overflow-x-auto bg-white rounded-lg shadow-sm border">
-                <table className="w-full min-w-[800px]">
+                <table className="w-full table-fixed border-collapse text-[10px] sm:text-xs">
+                <colgroup>
+                  <col className="w-[5.875rem] sm:w-32" />
+                  <col className="w-7 sm:w-8" />
+                  <col className="w-7 sm:w-8" />
+                  <col className="w-[2.125rem] sm:w-11" />
+                  <col className="w-7 sm:w-8" />
+                  <col className="w-7 sm:w-8" />
+                  <col className="w-7 sm:w-8" />
+                  <col className="w-7 sm:w-8" />
+                </colgroup>
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-1.5 sm:px-2 py-2 text-left font-semibold text-gray-900 uppercase tracking-wide">
                       {language === "en" ? "Time" : "시간"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Mon" : "월"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Tue" : "화"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Wed" : "수"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Thu" : "목"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Fri" : "금"}
                     </th>
-                    <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
                       {language === "en" ? "Sat" : "토"}
+                    </th>
+                    <th className="px-0 py-2 text-center font-semibold text-gray-900">
+                      {language === "en" ? "Sun" : "일"}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                      {language === "en" ? "10:00 AM - 11:00 AM" : "오전 10:00 - 11:00"}
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
+                      {language === "en" ? "12:00 PM - 1:00 PM" : "오후 12:00 - 1:00"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#6CA6D9] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Weekend adult" : "주말 성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#6CA6D9] rounded-full shrink-0" aria-hidden />
+                      </div>
+                    </td>
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Weekend adult" : "주말 성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#6CA6D9] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
                       {language === "en" ? "3:40 PM - 4:40 PM" : "오후 3:40 - 4:40"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
                   </tr>
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
                       {language === "en" ? "4:40 PM - 5:40 PM" : "오후 4:40 - 5:40"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
                   </tr>
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
                       {language === "en" ? "6:00 PM - 7:00 PM" : "오후 6:00 - 7:00"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full"></div>
-                        {language === "en" ? "Kids" : "초등부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Kids" : "초등부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#F7C948] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
                   </tr>
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
                       {language === "en" ? "7:00 PM - 8:00 PM" : "오후 7:00 - 8:00"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
                   </tr>
                   <tr>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
+                    <td className="px-1.5 sm:px-2 py-2 whitespace-nowrap font-medium text-gray-900 leading-tight">
                       {language === "en" ? "8:30 PM - 9:30 PM" : "오후 8:30 - 9:30"}
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        <span className="italic text-[#3FA54D]">NOGI</span>
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0.5">
+                        <span className="sr-only">{language === "en" ? "Adult NOGI" : "성인부 노기"}</span>
+                        <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
+                        <span className="italic text-[#3FA54D] text-[9px] sm:text-[10px] leading-none whitespace-nowrap">NOGI</span>
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full"></div>
-                        {language === "en" ? "Adult" : "성인부"}
+                    <td className="px-0 py-2 text-center align-middle text-gray-900">
+                      <div className="flex items-center justify-center gap-0">
+                        <span className="sr-only">{language === "en" ? "Adult" : "성인부"}</span>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#3FA54D] rounded-full shrink-0" aria-hidden />
                       </div>
                     </td>
-                    <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
+                    <td className="px-0 py-2 text-center text-gray-500">-</td>
                   </tr>
                 </tbody>
               </table>
@@ -688,7 +713,9 @@ export default function Home() {
                         {language === "en" ? "Mon-Fri: 3:40 PM - 9:30 PM" : "월-금: 오후 3:40 - 9:30"}
                       </p>
                       <p className="text-gray-600 text-sm sm:text-base">
-                        {language === "en" ? "Saturday: 10:00 AM - 12:00 PM" : "토요일: 오전 10:00 - 12:00"}
+                        {language === "en"
+                          ? "Sat & Sun: 12:00 PM - 1:00 PM (Adult)"
+                          : "토·일: 오후 12:00 - 1:00 (성인부)"}
                       </p>
                     </div>
                   </div>

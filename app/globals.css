@@ -75,7 +75,6 @@
 }
 
 @theme inline {
-  --font-korean: var(--font-korean);
   --color-primary: #3fa54d;
   --color-accent: #ffd93b;
   --color-background: var(--background);
@@ -114,6 +113,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@utility font-korean {
+  font-family: var(--font-korean), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Smooth scroll behavior */
