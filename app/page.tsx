@@ -208,42 +208,42 @@ export default function Home() {
         />
         <div className="pointer-events-none absolute inset-0 z-[2] hero-editorial-noise opacity-90" aria-hidden />
 
-        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-visible px-5 pb-[clamp(5.5rem_16vw_8.5rem)] pt-5 sm:px-6 sm:pt-5 lg:px-8 lg:pb-[clamp(5.5rem_12vw_7.5rem)] lg:pt-6">
+        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-visible px-5 pb-[clamp(5.5rem_16vw_8.5rem)] pt-5 sm:px-6 sm:pt-5 lg:px-10 lg:pb-[clamp(5.5rem_12vw_7.5rem)] lg:pt-8 xl:px-12">
           <div className="grid min-h-0 flex-1">
-            <div className="relative z-30 flex min-h-0 flex-col justify-center max-lg:max-w-none max-lg:space-y-4 max-lg:pb-2 text-left lg:max-w-xl lg:justify-start lg:space-y-3 lg:pt-2">
-              <div className="max-lg:space-y-1 space-y-0.5">
-                <p className="text-[12px] font-semibold leading-snug text-accent sm:text-[13px] lg:text-[11px] lg:font-semibold lg:uppercase lg:tracking-[0.22em]">
+            <div className="relative z-30 flex min-h-0 flex-col justify-center max-lg:max-w-none max-lg:space-y-4 max-lg:pb-2 text-left lg:max-w-3xl lg:justify-start lg:space-y-5 lg:pt-4 xl:max-w-4xl xl:space-y-6">
+              <div className="max-lg:space-y-1 space-y-0.5 lg:space-y-1.5">
+                <p className="text-[12px] font-semibold leading-snug text-accent sm:text-[13px] lg:text-sm lg:font-semibold lg:uppercase lg:tracking-[0.2em]">
                   {t[language].heroTopName}
                 </p>
-                <h1 className="text-[2.875rem] font-bold leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
+                <h1 className="text-[2.875rem] font-bold leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[0.9] xl:text-7xl xl:tracking-tight">
                   {t[language].heroDisplay}
                 </h1>
               </div>
-              <div className="max-w-md max-lg:border-0 max-lg:pt-0 max-lg:mt-0 border-t border-white/20 pt-3 lg:mt-0">
-                <p className="text-lg font-semibold leading-snug text-white sm:text-xl lg:font-medium lg:text-[#f5f2ea] lg:text-xl">
+              <div className="max-w-md max-lg:border-0 max-lg:pt-0 max-lg:mt-0 border-t border-white/20 pt-3 lg:mt-1 lg:max-w-2xl lg:pt-4 xl:max-w-3xl">
+                <p className="text-lg font-semibold leading-snug text-white sm:text-xl lg:text-2xl lg:font-semibold lg:leading-snug lg:text-[#f5f2ea] xl:text-3xl xl:leading-tight">
                   {t[language].heroHeadline}
                 </p>
               </div>
-              <p className="max-w-md text-[15px] font-normal leading-relaxed sm:text-base lg:text-[0.9375rem]">
-                <span className="text-white/95 lg:text-white/75">
+              <p className="max-w-md text-[15px] font-normal leading-relaxed sm:text-base lg:max-w-2xl lg:text-lg lg:leading-relaxed xl:max-w-3xl xl:text-xl">
+                <span className="text-white/95 lg:text-white/80">
                   {t[language].heroLeadBefore}{" "}
                 </span>
                 <span className="font-semibold text-accent">{t[language].heroLeadHighlight}</span>
-                <span className="text-white/95 lg:text-white/75">
+                <span className="text-white/95 lg:text-white/80">
                   {" "}
                   {t[language].heroLeadMid}
                 </span>
-                <span className="mt-2 block font-normal text-white/95 lg:text-white/75">{t[language].heroLeadClosing}</span>
+                <span className="mt-2 block font-normal text-white/95 lg:mt-3 lg:text-white/80">{t[language].heroLeadClosing}</span>
               </p>
-              <p className="max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm lg:text-xs lg:text-white/55">
+              <p className="max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm lg:max-w-2xl lg:text-base lg:leading-relaxed lg:text-white/55 xl:max-w-3xl">
                 {t[language].heroDescription}
               </p>
 
-              <div className="flex max-lg:pt-2 flex-col gap-2 pt-1 sm:flex-row sm:flex-wrap sm:gap-2.5">
+              <div className="flex max-lg:pt-2 flex-col gap-2 pt-1 sm:flex-row sm:flex-wrap sm:gap-2.5 lg:gap-3 lg:pt-1">
                 <Button
                   size="lg"
                   onClick={scrollToContact}
-                  className="rounded-sm bg-[#3FA54D] px-5 py-5 text-sm font-semibold text-white shadow-none hover:bg-[#358a45] sm:px-6 sm:py-4"
+                  className="rounded-sm bg-[#3FA54D] px-5 py-5 text-sm font-semibold text-white shadow-none hover:bg-[#358a45] sm:px-6 sm:py-4 lg:px-8 lg:py-5 lg:text-base"
                 >
                   {t[language].registerNow}
                 </Button>
@@ -251,7 +251,7 @@ export default function Home() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4"
+                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4 lg:px-8 lg:py-5 lg:text-base"
                 >
                   <a
                     href="https://www.instagram.com/cheolsan_jiujitsu/"
@@ -266,7 +266,7 @@ export default function Home() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4"
+                  className="rounded-sm border-white/25 bg-transparent px-5 py-5 text-sm font-semibold text-[#f5f2ea] hover:bg-white/10 hover:text-white sm:px-6 sm:py-4 lg:px-8 lg:py-5 lg:text-base"
                 >
                   <a href="https://m.blog.naver.com/jude56kr?tab=1" target="_blank" rel="noopener noreferrer">
                     {language === "en" ? "Naver Blog" : "네이버 블로그"}
