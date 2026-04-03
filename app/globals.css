@@ -1,6 +1,9 @@
 @import "tailwindcss";
-/* Scan the whole project — narrow globs can drop Tailwind output in v4 */
-@source "../**/*.{js,ts,jsx,tsx,mdx}";
+/* Explicit sources — broad ../** globs can fail in some environments and drop all utilities */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../hooks/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
 /* File path avoids package resolution issues that can drop all Tailwind output */
 @import "../node_modules/tw-animate-css/dist/tw-animate.css";
 
@@ -121,11 +124,6 @@
   font-family: var(--font-korean), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Custom animations */
 @keyframes fadeInUp {
   from {
@@ -181,7 +179,15 @@ html {
 }
 
 @layer base {
+  /* Hero green behind the page so overscroll / resize gaps aren’t bright white */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #0f2413;
+  }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    min-height: 100dvh;
   }
 }
