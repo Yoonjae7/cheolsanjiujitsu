@@ -212,7 +212,7 @@ export default function Home() {
           <div className="grid min-h-0 flex-1">
             <div className="relative z-30 flex min-h-0 flex-col justify-center max-lg:max-w-none max-lg:space-y-4 max-lg:pb-2 text-left lg:max-w-xl lg:justify-start lg:space-y-3 lg:pt-2">
               <div className="max-lg:space-y-1 space-y-0.5">
-                <p className="text-[12px] font-semibold leading-snug text-[#FFD93B] sm:text-[13px] lg:text-[11px] lg:font-semibold lg:uppercase lg:tracking-[0.22em]">
+                <p className="text-[12px] font-semibold leading-snug text-accent sm:text-[13px] lg:text-[11px] lg:font-semibold lg:uppercase lg:tracking-[0.22em]">
                   {t[language].heroTopName}
                 </p>
                 <h1 className="text-[2.875rem] font-bold leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
@@ -224,10 +224,15 @@ export default function Home() {
                   {t[language].heroHeadline}
                 </p>
               </div>
-              <p className="max-w-md text-[15px] font-normal leading-relaxed text-white/95 sm:text-base lg:text-[0.9375rem] lg:text-white/75">
-                {t[language].heroLeadBefore}{" "}
-                <span className="font-semibold text-[#FFD93B]">{t[language].heroLeadHighlight}</span>{" "}
-                {t[language].heroLeadMid}
+              <p className="max-w-md text-[15px] font-normal leading-relaxed sm:text-base lg:text-[0.9375rem]">
+                <span className="text-white/95 lg:text-white/75">
+                  {t[language].heroLeadBefore}{" "}
+                </span>
+                <span className="font-semibold text-accent">{t[language].heroLeadHighlight}</span>
+                <span className="text-white/95 lg:text-white/75">
+                  {" "}
+                  {t[language].heroLeadMid}
+                </span>
                 <span className="mt-2 block font-normal text-white/95 lg:text-white/75">{t[language].heroLeadClosing}</span>
               </p>
               <p className="max-w-md text-[13px] leading-relaxed text-white/45 sm:text-sm lg:text-xs lg:text-white/55">
