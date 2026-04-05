@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GoogleAnalytics } from "@next/third-parties/google"
+import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Noto_Sans_KR } from "next/font/google"
@@ -59,8 +59,23 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
     >
       <body className={`${notoSansKR.className} font-korean antialiased`}>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');
+`,
+          }}
+        />
         <LanguageProvider>{children}</LanguageProvider>
-        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   )
