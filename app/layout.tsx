@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Noto_Sans_KR } from "next/font/google"
@@ -13,6 +14,8 @@ const notoSansKR = Noto_Sans_KR({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cheolsanjiujitsu.vercel.app"
+
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-5RCRE54FJG"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -57,6 +60,7 @@ export default function RootLayout({
     >
       <body className={`${notoSansKR.className} font-korean antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
+        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   )
