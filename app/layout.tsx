@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Noto_Sans_KR } from "next/font/google"
+import { GoogleAnalyticsClient } from "@/components/google-analytics-client"
 import { LanguageProvider } from "@/components/language-toggle"
 import "./globals.css"
 
@@ -59,21 +60,34 @@ export default function RootLayout({
     >
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  analytics_storage:'granted',
+  ad_storage:'granted',
+  ad_user_data:'granted',
+  ad_personalization:'granted'
+});
+`,
+          }}
+        />
+        <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         <script
           dangerouslySetInnerHTML={{
             __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_MEASUREMENT_ID}');
+gtag('js',new Date());
+gtag('config','${GA_MEASUREMENT_ID}',{send_page_view:false});
 `,
           }}
         />
       </head>
       <body className={`${notoSansKR.className} font-korean antialiased`}>
+        <GoogleAnalyticsClient />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
