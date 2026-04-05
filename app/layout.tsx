@@ -1,9 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Noto_Sans_KR } from "next/font/google"
-import { GoogleAnalyticsClient } from "@/components/google-analytics-client"
+import { GoogleAnalyticsHashNavigation } from "@/components/google-analytics-hash"
+import {
+  GA_CONSENT_AND_STUB,
+  GA_GTAG_SRC,
+  GA_INIT,
+} from "@/lib/analytics"
 import { LanguageProvider } from "@/components/language-toggle"
 import "./globals.css"
 
@@ -14,8 +20,6 @@ const notoSansKR = Noto_Sans_KR({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cheolsanjiujitsu.vercel.app"
-
-const GA_MEASUREMENT_ID = "G-5RCRE54FJG" as const
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -58,36 +62,19 @@ export default function RootLayout({
       lang="ko"
       className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{
-  analytics_storage:'granted',
-  ad_storage:'granted',
-  ad_user_data:'granted',
-  ad_personalization:'granted'
-});
-`,
-          }}
-        />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-gtag('js',new Date());
-gtag('config','${GA_MEASUREMENT_ID}',{send_page_view:false});
-`,
-          }}
-        />
-      </head>
       <body className={`${notoSansKR.className} font-korean antialiased`}>
-        <GoogleAnalyticsClient />
+        <Script
+          id="ga-consent-stub"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: GA_CONSENT_AND_STUB }}
+        />
+        <Script src={GA_GTAG_SRC} strategy="beforeInteractive" />
+        <Script
+          id="ga-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: GA_INIT }}
+        />
+        <GoogleAnalyticsHashNavigation />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
