@@ -111,7 +111,7 @@ importers:
         specifier: 8.5.1
         version: 8.5.1(react@19.1.1)
       geist:
-        specifier: latest
+        specifier: 1.4.2
         version: 1.4.2(next@15.2.8(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
       input-otp:
         specifier: 1.4.1
