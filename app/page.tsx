@@ -208,7 +208,7 @@ export default function Home() {
         />
         <div className="pointer-events-none absolute inset-0 z-[2] hero-editorial-noise opacity-90" aria-hidden />
 
-        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-visible px-5 pb-[clamp(5.5rem_16vw_8.5rem)] pt-5 sm:px-6 sm:pt-5 lg:px-10 lg:pb-[clamp(5.5rem_12vw_7.5rem)] lg:pt-8 xl:px-12">
+        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-visible px-5 pb-[clamp(5.5rem,16vw,8.5rem)] pt-5 sm:px-6 sm:pt-5 lg:px-10 lg:pb-[clamp(5.5rem,12vw,7.5rem)] lg:pt-8 xl:px-12">
           <div className="grid min-h-0 flex-1">
             <div className="relative z-30 flex min-h-0 flex-col justify-center max-lg:max-w-none max-lg:space-y-4 max-lg:pb-2 text-left lg:max-w-3xl lg:justify-start lg:space-y-5 lg:pt-4 xl:max-w-4xl xl:space-y-6">
               <div className="max-lg:space-y-1 space-y-0.5 lg:space-y-1.5">
