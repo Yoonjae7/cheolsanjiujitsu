@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { useLanguage } from "@/components/language-toggle"
@@ -294,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="scroll-mt-20 py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section id="about" className="scroll-mt-20 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 glass-section-warm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -358,45 +357,45 @@ export default function Home() {
 
           {/* Features */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="text-center p-6 sm:p-8 hover-glow transition-all duration-300">
-              <CardContent className="pt-4 sm:pt-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#3FA54D]/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <div className="glass-card rounded-2xl text-center p-6 sm:p-8">
+              <div className="pt-4 sm:pt-6">
+                <div className="glass-icon w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <Award className="w-6 h-6 sm:w-8 sm:h-8 text-[#3FA54D]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                   {t[language].experienceTitle}
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base">{t[language].experienceDesc}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="text-center p-6 sm:p-8 hover-glow transition-all duration-300">
-              <CardContent className="pt-4 sm:pt-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#FFD93B]/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <div className="glass-card rounded-2xl text-center p-6 sm:p-8">
+              <div className="pt-4 sm:pt-6">
+                <div className="glass-icon w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <Target className="w-6 h-6 sm:w-8 sm:h-8 text-[#3FA54D]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{t[language].trainingTitle}</h3>
                 <p className="text-gray-600 text-sm sm:text-base">{t[language].trainingDesc}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="text-center p-6 sm:p-8 hover-glow transition-all duration-300">
-              <CardContent className="pt-4 sm:pt-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#3FA54D]/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <div className="glass-card rounded-2xl text-center p-6 sm:p-8">
+              <div className="pt-4 sm:pt-6">
+                <div className="glass-icon w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <Users className="w-6 h-6 sm:w-8 sm:h-8 text-[#3FA54D]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                   {t[language].communityTitle}
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base">{t[language].communityDesc}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Classes Section */}
-      <section id="classes" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="classes" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 glass-section-cool">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -407,31 +406,29 @@ export default function Home() {
 
           {/* Classes */}
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            <Card className="border-l-4 border-l-[#F7C948] hover-glow transition-all duration-300">
-              <CardContent className="p-4 sm:p-6">
-                <Badge className="bg-[#F7C948] text-gray-900 mb-2 sm:mb-3">Kids</Badge>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Kids</h3>
-                <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">{t[language].kidsClass}</p>
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <div className="p-5 sm:p-7">
+                <Badge className="glass-badge bg-[#F7C948]/80 text-gray-900 mb-2.5 sm:mb-3 border-0">Kids</Badge>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{t[language].kidsClass}</h3>
                 <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].kidsDesc}</p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   50{language === "en" ? " min class" : "분 수업"}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border-l-4 border-l-[#3FA54D] hover-glow transition-all duration-300">
-              <CardContent className="p-4 sm:p-6">
-                <Badge className="bg-[#3FA54D] text-white mb-2 sm:mb-3">Adult</Badge>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Adult</h3>
-                <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">{t[language].adultClass}</p>
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <div className="p-5 sm:p-7">
+                <Badge className="glass-badge bg-[#3FA54D]/80 text-white mb-2.5 sm:mb-3 border-0">Adult</Badge>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{t[language].adultClass}</h3>
                 <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{t[language].adultDesc}</p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                   60{language === "en" ? " min class" : "분 수업"}
+                  60{language === "en" ? " min class" : "분 수업"}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             
           </div>
@@ -462,7 +459,7 @@ export default function Home() {
 
             {/* Schedule Table */}
             <div className="relative">
-              <div className="overflow-x-auto bg-white rounded-lg shadow-sm border">
+              <div className="overflow-x-auto glass-card rounded-2xl">
                 <table className="w-full table-fixed border-collapse text-[10px] sm:text-xs">
                 <colgroup>
                   <col className="w-[5.875rem] sm:w-32" />
@@ -729,7 +726,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section id="gallery" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 glass-section-warm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -740,7 +737,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
+            <div className="relative group overflow-hidden glass-card rounded-2xl transition-all duration-300">
               <img
                 src="/gallery/i1.JPG"
                 alt={language === "en" ? "Gallery Photo 1" : "갤러리 사진 1"}
@@ -748,7 +745,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
+            <div className="relative group overflow-hidden glass-card rounded-2xl transition-all duration-300">
               <img
                 src="/gallery/i2.JPG"
                 alt={language === "en" ? "Gallery Photo 2" : "갤러리 사진 2"}
@@ -756,7 +753,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
+            <div className="relative group overflow-hidden glass-card rounded-2xl transition-all duration-300">
               <img
                 src="/gallery/i3.JPG"
                 alt={language === "en" ? "Gallery Photo 3" : "갤러리 사진 3"}
@@ -764,7 +761,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
+            <div className="relative group overflow-hidden glass-card rounded-2xl transition-all duration-300">
               <img
                 src="/gallery/i4.JPG"
                 alt={language === "en" ? "Gallery Photo 4" : "갤러리 사진 4"}
@@ -772,7 +769,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover-glow transition-all duration-300">
+            <div className="relative group overflow-hidden glass-card rounded-2xl transition-all duration-300">
               <img
                 src="/gallery/i5.JPG"
                 alt={language === "en" ? "Gallery Photo 5" : "갤러리 사진 5"}
@@ -793,9 +790,9 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 glass-section-cool">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-10 sm:mb-12 rounded-lg border border-[#3FA54D]/20 bg-white px-4 py-4 shadow-sm sm:px-6 sm:py-5">
+          <div className="glass-card mb-10 sm:mb-12 rounded-2xl px-4 py-4 sm:px-6 sm:py-5">
             <ul className="space-y-2 text-center text-sm leading-relaxed text-gray-800 sm:text-base">
               <li>{t[language].promoLine1}</li>
               <li>{t[language].promoLine2}</li>
@@ -806,7 +803,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Information */}
             <div className="space-y-6 sm:space-y-8">
-              <div className="bg-white p-6 sm:p-8 rounded-lg shadow-sm">
+              <div className="glass-card p-6 sm:p-8 rounded-2xl">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">
                   {t[language].contactInfo}
                 </h3>
@@ -875,7 +872,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="glass-card rounded-2xl overflow-hidden">
               <div className="h-64 sm:h-80 lg:h-full min-h-[300px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.8234567890123!2d126.8765432109876!3d37.4765432109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9876543210ab%3A0x1234567890abcdef!2s395%20Cheolsan-dong%2C%20Gwangmyeong-si%2C%20Gyeonggi-do%2C%20South%20Korea!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
