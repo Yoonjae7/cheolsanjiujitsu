@@ -309,7 +309,7 @@ export default function Home() {
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="flex h-24 items-center justify-center sm:h-28">
                   <img
-                    src="/kids-logo.png"
+                    src="/kids-logo.jpg"
                     alt={t[language].kidsLogoAlt}
                     className="max-h-full w-auto max-w-[min(100vw-3rem,200px)] object-contain"
                   />
