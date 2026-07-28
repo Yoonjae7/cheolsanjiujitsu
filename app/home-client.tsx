@@ -147,7 +147,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero — two-panel editorial layout matching reference */}
-      <section id="home" className="relative scroll-mt-20 overflow-hidden bg-[#1a2a24]">
+      <section id="home" className="relative scroll-mt-20 overflow-x-clip bg-[#1a2a24]">
         <div className="relative flex flex-col lg:flex-row lg:min-h-[min(80vh,740px)]">
 
           {/* LEFT PANEL — dark with text + portrait */}
