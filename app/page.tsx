@@ -22,8 +22,10 @@ export default function Home() {
       aboutDescription: "존 프랭클 주짓수의 전통과 철학을 이어받아, 광명시 철산동에서 최고의 주짓수 교육을 제공합니다.",
       competitionLogoAlt: "존 프랭클 주짓수 경기팀 로고",
       cheolsanLogoAlt: "철산 주짓수 로고",
+      kidsLogoAlt: "키즈 주짓수 로고",
       competitionTeamShort: "경기팀",
       cheolsanAcademyShort: "철산 도장",
+      kidsAcademyShort: "키즈부",
       affiliationAriaLabel: "존 프랭클 경기팀과 철산 주짓수 도장",
       historyTitle: "우리의 역사와 철학",
       historyText1:
@@ -82,8 +84,10 @@ export default function Home() {
         "Inheriting the tradition and philosophy of John Frankl Jiu Jitsu, we provide the best jiu jitsu education in Cheolsan-dong, Gwangmyeong City.",
       competitionLogoAlt: "John Frankl Jiu Jitsu competition team logo",
       cheolsanLogoAlt: "Cheolsan Jiu Jitsu logo",
+      kidsLogoAlt: "Kids Jiu Jitsu logo",
       competitionTeamShort: "Competition team",
       cheolsanAcademyShort: "Cheolsan academy",
+      kidsAcademyShort: "Kids",
       affiliationAriaLabel: "John Frankl competition team and Cheolsan Jiu Jitsu academy",
       historyTitle: "Our History and Philosophy",
       historyText1:
@@ -330,6 +334,19 @@ export default function Home() {
                 </div>
                 <span className="text-xs font-medium uppercase tracking-wide text-gray-500">
                   {t[language].cheolsanAcademyShort}
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="flex h-24 items-center justify-center sm:h-28">
+                  <img
+                    src="/kids-logo.jpg"
+                    alt={t[language].kidsLogoAlt}
+                    className="max-h-full w-auto max-w-[min(100vw-3rem,200px)] object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                  {t[language].kidsAcademyShort}
                 </span>
               </div>
             </div>
