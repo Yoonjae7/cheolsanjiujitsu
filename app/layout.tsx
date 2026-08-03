@@ -58,6 +58,7 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
     >
       <head>
+        <meta name="naver-site-verification" content="6315343a09ddc0f86e0befecd33b2e495267d3d6" />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
