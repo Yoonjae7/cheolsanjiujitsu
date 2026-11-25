@@ -1,26 +1,50 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Noto_Sans_KR } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Archivo, Black_Han_Sans, IBM_Plex_Sans_KR } from "next/font/google"
 import { LanguageProvider } from "@/components/language-toggle"
 import "./globals.css"
 
-const notoSansKR = Noto_Sans_KR({
+/* Archivo sets Latin and numerals; Black Han Sans picks up Hangul in the same headings. */
+const latinDisplay = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
+  adjustFontFallback: false,
+  variable: "--font-latin",
+})
+
+const koreanDisplay = Black_Han_Sans({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-korean",
+  preload: false,
+  adjustFontFallback: false,
+  variable: "--font-poster",
 })
+
+const body = IBM_Plex_Sans_KR({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  variable: "--font-body",
+})
+
+/* Brush face for the four characters on the dojang wall only. */
+const BRUSH_FONT = `https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap&text=${encodeURIComponent("鐵山柔術")}`
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cheolsanjiujitsu.vercel.app"
 
 const GA_MEASUREMENT_ID = "G-5RCRE54FJG"
 
+export const viewport: Viewport = {
+  themeColor: "#0e2519",
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "철산 주짓수 - Cheolsan Jiu Jitsu",
   description: "존 프랭클 주짓수 팀 - 경기도 광명시 철산동",
-  generator: "v0.dev",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -47,6 +71,13 @@ export const metadata: Metadata = {
   },
 }
 
+/* Runs before first paint: enables reveal states, and skips the intro on repeat views. */
+const BOOT_SCRIPT = `
+  var d = document.documentElement;
+  d.classList.add('js');
+  try { if (sessionStorage.getItem('cheolsan-intro') || location.hash) d.classList.add('no-intro'); } catch (e) {}
+`
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,10 +86,14 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${notoSansKR.variable}`}
+      className={`${latinDisplay.variable} ${koreanDisplay.variable} ${body.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <meta name="naver-site-verification" content="6315343a09ddc0f86e0befecd33b2e495267d3d6" />
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={BRUSH_FONT} />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -75,7 +110,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${notoSansKR.className} font-korean antialiased`}>
+      <body>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
