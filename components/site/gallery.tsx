@@ -35,7 +35,6 @@ export function Gallery() {
           <Reveal move="sweep" className={`shot shot--${item.shape}`} delay={(i % 3) * 90} key={item.src}>
             <button type="button" onClick={() => setOpen(i)} aria-label={`${item.caption[language]} · ${t.enlarge}`}>
               <img src={item.src} alt={item.caption[language]} loading="lazy" />
-              <span>{item.caption[language]}</span>
             </button>
           </Reveal>
         ))}

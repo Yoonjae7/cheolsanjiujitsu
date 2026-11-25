@@ -1203,24 +1203,6 @@ button {
   transition: transform 0.6s var(--settle);
 }
 
-.shot button span {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 0.35rem 0.75rem;
-  background: var(--ink);
-  color: var(--chalk);
-  font-size: 0.8rem;
-  text-align: left;
-  translate: 0 100%;
-  transition: translate 0.25s var(--settle);
-}
-
-.shot button:hover span,
-.shot button:focus-visible span {
-  translate: 0 0;
-}
-
 .shot button:hover img {
   transform: scale(1.05) rotate(1deg);
 }
